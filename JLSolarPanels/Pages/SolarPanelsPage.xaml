@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JLSolarPanels.Pages.SolarPanelsPage">
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            <Label Text="Inclinaison" />
+            <Label x:Name="HorizontalLabel" Text="Horizontal (Gauche - Droite) : " />
+            <Label x:Name="VerticalLabel" Text="Vertical (Avant - Arrière)  : " />
+
+            <Label Text="Boussole" />
+            <Label x:Name="HeadingLabel" Text="Direction : " />
+            <Label x:Name="DirectionLabel" Text="Rose des vents : " />
+            
+            <Label Text="GPS" />
+            <Label x:Name="LongitudeLabel" Text="Longitude : " />
+            <Label x:Name="LatitudeLabel" Text="Latitude : " />
+            <Label x:Name="AltitudeLabel" Text="Altitude : " />
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

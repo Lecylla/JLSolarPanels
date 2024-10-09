@@ -1,0 +1,1 @@
+C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\JLSolarPanels.csproj;x64
