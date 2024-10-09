@@ -303,6 +303,7 @@ C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\io
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\JLSolarPanels.AssemblyInfoInputs.cache
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\JLSolarPanels.AssemblyInfo.cs
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\JLSolarPanels.csproj.CoreCompileInputs.cache
+C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\JLSolarPanels.sourcelink.json
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\XamlC.stamp
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\JLSolarP.10D2DD07.Up2Date
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\JLSolarPanels.dll

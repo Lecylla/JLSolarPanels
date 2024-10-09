@@ -27,8 +27,8 @@ public partial class SolarPanelsPage : ContentPage
 
         Accelerometer.ReadingChanged += (s, e) =>
         {
-            HorizontalLabel.Text = $"Horizontal (Gauche - Droite) : {e.Reading.Acceleration.Z}";
-            VerticalLabel.Text = $"Vertical (Avant - Arrière) : {e.Reading.Acceleration.X}";
+            HorizontalLabel.Text = $"Horizontal (Gauche - Droite) : {Math.Round(e.Reading.Acceleration.Z, 2)}";
+            VerticalLabel.Text = $"Vertical (Avant - Arrière) : {Math.Round(e.Reading.Acceleration.X, 2)}";
         };
 
         Accelerometer.Start(SensorSpeed.UI);
@@ -44,52 +44,53 @@ public partial class SolarPanelsPage : ContentPage
 
         Compass.ReadingChanged += (s, e) =>
         {
-            HeadingLabel.Text = $"Direction : {e.Reading.HeadingMagneticNorth}°";
-            switch (e.Reading.HeadingMagneticNorth)
+            int direction = (int)Math.Round(e.Reading.HeadingMagneticNorth);
+            HeadingLabel.Text = $"Direction : {direction}°";
+            switch (direction)
             {
-                case <= 25.5:
+                case <= 25:
                     DirectionLabel.Text = "Rose des vents : Nord Nord-Est";
                     break;
                 case <= 45:
                     DirectionLabel.Text = "Rose des vents : Nord-Est";
                     break;
-                case <= 67.5:
+                case <= 67:
                     DirectionLabel.Text = "Rose des vents : Est Nord-Est";
                     break;
                 case <= 90:
                     DirectionLabel.Text = "Rose des vents : Est";
                     break;
-                case <= 112.5:
+                case <= 112:
                     DirectionLabel.Text = "Rose des vents : Est Sud-Est";
                     break;
                 case <= 135:
                     DirectionLabel.Text = "Rose des vents : Sud-Est";
                     break;
-                case <= 157.5:
+                case <= 157:
                     DirectionLabel.Text = "Rose des vents : Sud Sud-Est";
                     break;
                 case <= 180:
                     DirectionLabel.Text = "Rose des vents : Sud";
                     break;
-                case <= 202.5:
+                case <= 202:
                     DirectionLabel.Text = "Rose des vents : Sud Sud-Ouest";
                     break;
                 case <= 225:
                     DirectionLabel.Text = "Rose des vents : Sud-Ouest";
                     break;
-                case <= 247.5:
+                case <= 247:
                     DirectionLabel.Text = "Rose des vents : Ouest Sud-Ouest";
                     break;
                 case <= 270:
                     DirectionLabel.Text = "Rose des vents : Ouest";
                     break;
-                case <= 292.5:
+                case <= 292:
                     DirectionLabel.Text = "Rose des vents : Ouest Nord-Ouest";
                     break;
                 case <= 315:
                     DirectionLabel.Text = "Rose des vents : Nord-Ouest";
                     break;
-                case <= 337.5:
+                case <= 337:
                     DirectionLabel.Text = "Rose des vents : Nord Nord-Ouest";
                     break;
                 case <= 360:
@@ -103,17 +104,22 @@ public partial class SolarPanelsPage : ContentPage
 
     async void GetLocation()
     {
-        var location = await Geolocation.GetLocationAsync(new GeolocationRequest
+        while (true)
         {
-            DesiredAccuracy = GeolocationAccuracy.High,
-            Timeout = TimeSpan.FromSeconds(30)
-        });
+            var location = await Geolocation.GetLocationAsync(new GeolocationRequest
+            {
+                DesiredAccuracy = GeolocationAccuracy.High,
+                Timeout = TimeSpan.FromSeconds(30)
+            });
         
-        if (location != null)
-        {
-            LatitudeLabel.Text = $"Latitude : {location.Latitude}";
-            LongitudeLabel.Text = $"Longitude : {location.Longitude}";
-            AltitudeLabel.Text = $"Altitude : {location.Altitude}";
+            if (location != null)
+            {
+                LatitudeLabel.Text = $"Latitude : {location.Latitude}";
+                LongitudeLabel.Text = $"Longitude : {location.Longitude}";
+                AltitudeLabel.Text = $"Altitude : {location.Altitude}";
+            }
+        
+            await Task.Delay(1000);
         }
     }
     
