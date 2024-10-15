@@ -128,8 +128,6 @@ C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-androi
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\res\values\colors.xml
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\uploadflags.txt
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\resolvedassemblies.hash
-C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\arm64-v8a\System.Private.CoreLib.dll
-C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\armeabi-v7a\System.Private.CoreLib.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\ar\Microsoft.Maui.Controls.resources.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\ca\Microsoft.Maui.Controls.resources.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\cs\Microsoft.Maui.Controls.resources.dll
@@ -276,6 +274,7 @@ C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-androi
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\System.Numerics.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\System.Numerics.Vectors.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\System.ObjectModel.dll
+C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\System.Private.CoreLib.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\System.Private.DataContractSerialization.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\System.Private.Uri.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\System.Private.Xml.dll
@@ -360,8 +359,6 @@ C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-androi
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\uk\Microsoft.Maui.Controls.resources.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\vi\Microsoft.Maui.Controls.resources.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\WindowsBase.dll
-C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\x86\System.Private.CoreLib.dll
-C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\x86_64\System.Private.CoreLib.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\Xamarin.Android.Glide.Annotations.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\Xamarin.Android.Glide.DiskLruCache.dll
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\Xamarin.Android.Glide.dll
@@ -1042,4 +1039,3 @@ C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-androi
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-android\android\assets\System.Private.CoreLib.dll

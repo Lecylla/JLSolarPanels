@@ -27,8 +27,8 @@ public partial class SolarPanelsPage : ContentPage
 
         Accelerometer.ReadingChanged += (s, e) =>
         {
-            HorizontalLabel.Text = $"Horizontal (Gauche - Droite) : {Math.Round(e.Reading.Acceleration.Z, 2)}";
-            VerticalLabel.Text = $"Vertical (Avant - Arrière) : {Math.Round(e.Reading.Acceleration.X, 2)}";
+            HorizontalLabel.Text = $"Horizontal : {Math.Round(e.Reading.Acceleration.Z, 2)}";
+            VerticalLabel.Text = $"Vertical : {Math.Round(e.Reading.Acceleration.X, 2)}";
         };
 
         Accelerometer.Start(SensorSpeed.UI);
@@ -109,19 +109,17 @@ public partial class SolarPanelsPage : ContentPage
             var location = await Geolocation.GetLocationAsync(new GeolocationRequest
             {
                 DesiredAccuracy = GeolocationAccuracy.High,
-                Timeout = TimeSpan.FromSeconds(30)
+                Timeout = TimeSpan.FromSeconds(1)
             });
         
             if (location != null)
             {
                 LatitudeLabel.Text = $"Latitude : {location.Latitude}";
                 LongitudeLabel.Text = $"Longitude : {location.Longitude}";
-                AltitudeLabel.Text = $"Altitude : {location.Altitude}";
+                AltitudeLabel.Text = $"Altitude : {Math.Round(float.Parse(location.Altitude.ToString()), 7)}";
             }
         
-            await Task.Delay(1000);
+            await Task.Delay(100);
         }
     }
-    
-    // Barometer
 }

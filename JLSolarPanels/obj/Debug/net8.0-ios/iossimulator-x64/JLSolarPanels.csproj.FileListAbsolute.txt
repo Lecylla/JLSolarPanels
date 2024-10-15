@@ -311,3 +311,9 @@ C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\io
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\JLSolarPanels.pdb
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\JLSolarPanels.genruntimeconfig.cache
 C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\ref\JLSolarPanels.dll
+C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_C8F862E9E3DD14ABFAE0615DEA7940136359311597BC3F48B883A46CC2949ED0.png
+C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_C8F862E9E3DD14ABFAE0615DEA7940136359311597BC3F48B883A46CC2949ED0@2x.png
+C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_C8F862E9E3DD14ABFAE0615DEA7940136359311597BC3F48B883A46CC2949ED0@3x.png
+C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_87AC7151623119F52AA03A05F79C71530F0972E802B83AB2E3E809E21E20C2B3.png
+C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_87AC7151623119F52AA03A05F79C71530F0972E802B83AB2E3E809E21E20C2B3@2x.png
+C:\Users\jules\RiderProjects\JLSolarPanels\JLSolarPanels\obj\Debug\net8.0-ios\iossimulator-x64\resizetizer\sp\splash_87AC7151623119F52AA03A05F79C71530F0972E802B83AB2E3E809E21E20C2B3@3x.png
