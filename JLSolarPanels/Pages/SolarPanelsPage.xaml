@@ -3,11 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JLSolarPanels.Pages.SolarPanelsPage"
              Title="JL Solar Panels">
-    <ContentPage.Resources>
-        
-    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="ThemeToggle" 
+                     IconImageSource="sun.png" 
+                     Priority="0" 
+                     Order="Primary"
+                     Clicked="OnThemeToggleClicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <Grid Padding="20" BackgroundColor="#263238">
+        <Grid Padding="20">
             <VerticalStackLayout Spacing="15">
                 <Frame Style="{StaticResource CardStyle}">
                     <VerticalStackLayout>
