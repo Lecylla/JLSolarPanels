@@ -8,7 +8,7 @@ namespace JLSolarPanels.Pages;
 
 public partial class SolarPanelsPage : ContentPage
 {
-    private bool isDarkMode = true;
+    public bool isDarkMode = true;
     public SolarPanelsPage()
     {
         InitializeComponent();
@@ -18,20 +18,19 @@ public partial class SolarPanelsPage : ContentPage
         UpdateTheme();
     }
     
-    private void OnThemeToggleClicked(object sender, EventArgs e)
+    void OnThemeToggleClicked(object sender, EventArgs e)
     {
         isDarkMode = !isDarkMode;
         
         UpdateTheme();
-
-        OnAppearing();
     }
 
-    private void UpdateTheme()
+    void UpdateTheme()
     {
         if (isDarkMode)
         {
             Application.Current.UserAppTheme = AppTheme.Dark;
+            
             ThemeToggle.IconImageSource = "sun.png";
         }
         else
@@ -39,7 +38,6 @@ public partial class SolarPanelsPage : ContentPage
             Application.Current.UserAppTheme = AppTheme.Light;
             ThemeToggle.IconImageSource = "moon.png";
         }
-        OnAppearing();
     }
 
     void GetOrientation()

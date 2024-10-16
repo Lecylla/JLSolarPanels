@@ -23,17 +23,18 @@
     
     <!-- Card Style Add -->
     <Style x:Key="CardStyle" TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Foreground}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Foreground}, Dark={StaticResource ForegroundDark}}" />
         <Setter Property="CornerRadius" Value="20" />
         <Setter Property="HasShadow" Value="True" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="20" />
-        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Background}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource Foreground}, Dark={StaticResource ForegroundDark}}" />
     </Style>
     
     <!-- Grid Style Add -->
     <Style TargetType="Grid">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Background}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Background}, Dark={StaticResource BackgroundDark}}" />
+        <Setter Property="Padding" Value="20" />
     </Style>
     
     <Style TargetType="ActivityIndicator">
@@ -442,9 +443,9 @@
         <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray200}}" />
     </Style>
 
-    <Style TargetType="NavigationPage">
+    <Style TargetType="NavigationPage" >
         <!-- <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}" /> -->
-        <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Background}}" />
+        <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Primary}}" />
         <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}" />
         <Setter Property="IconColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}" />
     </Style>
