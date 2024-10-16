@@ -3,26 +3,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Plugin.Maui.Audio;
+using System.Timers;
 
 namespace JLSolarPanels.Pages;
 
 public partial class SolarPanelsPage : ContentPage
 {
     public bool isDarkMode = true;
+    private IAudioPlayer jour;
+    private IAudioPlayer nuit;
+    private IAudioPlayer spam;
+    private int spamCount = 0;
+    private System.Timers.Timer spamTimer;
+    private bool isTimerRunning = false;
     public SolarPanelsPage()
     {
         InitializeComponent();
         GetOrientation();
         GetDirection();
         GetLocation();
-        UpdateTheme();
+        Application.Current.UserAppTheme = AppTheme.Dark;
+        jour = AudioManager.Current.CreatePlayer("jour.mp3");
+        nuit = AudioManager.Current.CreatePlayer("nuit.mp3");
+        spam = AudioManager.Current.CreatePlayer("spam.mp3");
     }
     
-    void OnThemeToggleClicked(object sender, EventArgs e)
+    async void OnThemeToggleClicked(object sender, EventArgs e)
     {
+        if (!isTimerRunning)
+        {
+            StartSpamTimer();
+        }
+        
+        spamCount++;
+        
+        if (spamCount >= 10)
+        {
+            spam.Play();
+        }
+        
         isDarkMode = !isDarkMode;
         
+        await this.FadeTo(0, 250);
         UpdateTheme();
+        await this.FadeTo(1, 250);
+    }
+    
+    void StartSpamTimer()
+    {
+        spamTimer = new System.Timers.Timer(10000);
+        spamTimer.Elapsed += OnSpamTimerElapsed;
+        spamTimer.AutoReset = false;
+        spamTimer.Start();
+        isTimerRunning = true;
+    }
+
+    void OnSpamTimerElapsed(object sender, ElapsedEventArgs e)
+    {
+        spamCount = 0;
+        isTimerRunning = false;
+        spamTimer.Stop();
+        spamTimer.Dispose();
     }
 
     void UpdateTheme()
@@ -30,13 +72,14 @@ public partial class SolarPanelsPage : ContentPage
         if (isDarkMode)
         {
             Application.Current.UserAppTheme = AppTheme.Dark;
-            
             ThemeToggle.IconImageSource = "sun.png";
+            nuit.Play();
         }
         else
         {
             Application.Current.UserAppTheme = AppTheme.Light;
             ThemeToggle.IconImageSource = "moon.png";
+            jour.Play();
         }
     }
 
@@ -143,7 +186,7 @@ public partial class SolarPanelsPage : ContentPage
                 AltitudeLabel.Text = $"Altitude : {Math.Round(float.Parse(location.Altitude.ToString()), 7)}";
             }
         
-            await Task.Delay(100);
+            await Task.Delay(1000);
         }
     }
 }
