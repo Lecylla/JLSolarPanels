@@ -27,14 +27,21 @@
         <Setter Property="CornerRadius" Value="20" />
         <Setter Property="HasShadow" Value="True" />
         <Setter Property="Margin" Value="10" />
-        <Setter Property="Padding" Value="20" />
+        <Setter Property="Padding" Value="10" />
         <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource Foreground}, Dark={StaticResource ForegroundDark}}" />
     </Style>
     
     <!-- Grid Style Add -->
     <Style TargetType="Grid">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Background}, Dark={StaticResource BackgroundDark}}" />
-        <Setter Property="Padding" Value="20" />
+        <Setter Property="Padding" Value="10,20,10,10" />
+    </Style>
+    
+    <!-- HorizontalStackLayout Style Add -->
+    <Style TargetType="HorizontalStackLayout">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="Spacing" Value="7" />
     </Style>
     
     <Style TargetType="ActivityIndicator">

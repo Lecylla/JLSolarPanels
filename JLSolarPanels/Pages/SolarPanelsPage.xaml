@@ -4,28 +4,37 @@
              x:Class="JLSolarPanels.Pages.SolarPanelsPage"
              Title="JL Solar Panels">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="ThemeToggle" IconImageSource="sun.png" Clicked="OnThemeToggleClicked" />
+        <ToolbarItem x:Name="ThemeToggle" IconImageSource="sun.png" Clicked="ThemeToggleClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
             <VerticalStackLayout Spacing="15">
                 <Frame Style="{StaticResource CardStyle}">
                     <VerticalStackLayout>
-                        <Label Text="Inclinaison" Style="{StaticResource TitleLabelStyle}" />
+                        <HorizontalStackLayout>
+                            <Image Source="gyroscope.png" WidthRequest="24" HeightRequest="24" />
+                            <Label Text="Inclinaison" Style="{StaticResource TitleLabelStyle}" />
+                        </HorizontalStackLayout>
                         <Label x:Name="HorizontalLabel" Text="Horizontal : " Style="{StaticResource InfoLabelStyle}" />
                         <Label x:Name="VerticalLabel" Text="Vertical : " Style="{StaticResource InfoLabelStyle}" />
                     </VerticalStackLayout>
                 </Frame>
                 <Frame Style="{StaticResource CardStyle}">
                     <VerticalStackLayout>
-                        <Label Text="Boussole" Style="{StaticResource TitleLabelStyle}" />
+                        <HorizontalStackLayout>
+                            <Image Source="compass.png" WidthRequest="24" HeightRequest="24" />
+                            <Label Text="Boussole" Style="{StaticResource TitleLabelStyle}" />
+                        </HorizontalStackLayout>
                         <Label x:Name="HeadingLabel" Text="Direction : " Style="{StaticResource InfoLabelStyle}" />
                         <Label x:Name="DirectionLabel" Text="Rose des vents : " Style="{StaticResource InfoLabelStyle}" />
                     </VerticalStackLayout>
                 </Frame>
                 <Frame Style="{StaticResource CardStyle}">
                     <VerticalStackLayout>
-                        <Label Text="GPS" Style="{StaticResource TitleLabelStyle}" />
+                        <HorizontalStackLayout>
+                            <Image Source="gps.png" WidthRequest="24" HeightRequest="24" />
+                            <Label Text="GPS" Style="{StaticResource TitleLabelStyle}" />
+                        </HorizontalStackLayout>
                         <Label x:Name="LongitudeLabel" Text="Longitude : " Style="{StaticResource InfoLabelStyle}" />
                         <Label x:Name="LatitudeLabel" Text="Latitude : " Style="{StaticResource InfoLabelStyle}" />
                         <Label x:Name="AltitudeLabel" Text="Altitude : " Style="{StaticResource InfoLabelStyle}" />

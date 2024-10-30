@@ -10,65 +10,38 @@ namespace JLSolarPanels.Pages;
 
 public partial class SolarPanelsPage : ContentPage
 {
-    public bool isDarkMode = true;
-    private IAudioPlayer jour;
-    private IAudioPlayer nuit;
-    private IAudioPlayer spam;
+    private bool isDarkMode = true;
+    
+    private IAudioPlayer jour = AudioManager.Current.CreatePlayer("jour.mp3");
+    private IAudioPlayer nuit = AudioManager.Current.CreatePlayer("nuit.mp3");
+    private IAudioPlayer spam = AudioManager.Current.CreatePlayer("spam.mp3");
+    
+    private int spamLimit = 10;
+    private int spamTimerInterval = 10000;
     private int spamCount = 0;
     private System.Timers.Timer spamTimer;
     private bool isTimerRunning = false;
     public SolarPanelsPage()
     {
         InitializeComponent();
+        
         GetOrientation();
         GetDirection();
         GetLocation();
+        
         Application.Current.UserAppTheme = AppTheme.Dark;
-        jour = AudioManager.Current.CreatePlayer("jour.mp3");
-        nuit = AudioManager.Current.CreatePlayer("nuit.mp3");
-        spam = AudioManager.Current.CreatePlayer("spam.mp3");
     }
     
-    async void OnThemeToggleClicked(object sender, EventArgs e)
+    void ThemeToggleClicked(object sender, EventArgs e)
     {
-        if (!isTimerRunning)
-        {
-            StartSpamTimer();
-        }
-        
-        spamCount++;
-        
-        if (spamCount >= 10)
-        {
-            spam.Play();
-        }
-        
-        isDarkMode = !isDarkMode;
-        
-        await this.FadeTo(0, 250);
+        UpdateTimer();
         UpdateTheme();
-        await this.FadeTo(1, 250);
     }
     
-    void StartSpamTimer()
+    async void UpdateTheme()
     {
-        spamTimer = new System.Timers.Timer(10000);
-        spamTimer.Elapsed += OnSpamTimerElapsed;
-        spamTimer.AutoReset = false;
-        spamTimer.Start();
-        isTimerRunning = true;
-    }
-
-    void OnSpamTimerElapsed(object sender, ElapsedEventArgs e)
-    {
-        spamCount = 0;
-        isTimerRunning = false;
-        spamTimer.Stop();
-        spamTimer.Dispose();
-    }
-
-    void UpdateTheme()
-    {
+        isDarkMode = !isDarkMode;
+        await this.FadeTo(0, 250);
         if (isDarkMode)
         {
             Application.Current.UserAppTheme = AppTheme.Dark;
@@ -81,6 +54,36 @@ public partial class SolarPanelsPage : ContentPage
             ThemeToggle.IconImageSource = "moon.png";
             jour.Play();
         }
+        await this.FadeTo(1, 250);
+    }
+    
+    void UpdateTimer()
+    {
+        if (!isTimerRunning)
+            StartSpamTimer();
+        
+        spamCount++;
+        
+        if (spamCount >= spamLimit)
+            spam.Play();
+    }
+    
+    void StartSpamTimer()
+    {
+        spamTimer = new System.Timers.Timer(spamTimerInterval)
+        {
+            AutoReset = false // Pas de redémarrage automatique
+        };
+        spamTimer.Elapsed += SpamTimerElapsed; // Événement déclenché à la fin du timer
+        spamTimer.Start();
+        isTimerRunning = true;
+    }
+
+    void SpamTimerElapsed(Object source, ElapsedEventArgs e)
+    {
+        spamTimer.Dispose(); // Libère les ressources et arrête le timer (pas besoin de Stop())
+        spamCount = 0;
+        isTimerRunning = false;
     }
 
     void GetOrientation()
@@ -91,13 +94,13 @@ public partial class SolarPanelsPage : ContentPage
             VerticalLabel.Text = "Vertical : Indisponible";
             return;
         }
-
-        Accelerometer.ReadingChanged += (s, e) =>
+        
+        Accelerometer.ReadingChanged += (sender, e) =>
         {
             HorizontalLabel.Text = $"Horizontal : {Math.Round(e.Reading.Acceleration.Z, 2)}";
             VerticalLabel.Text = $"Vertical : {Math.Round(e.Reading.Acceleration.X, 2)}";
         };
-
+        
         Accelerometer.Start(SensorSpeed.UI);
     }
     
@@ -171,22 +174,34 @@ public partial class SolarPanelsPage : ContentPage
 
     async void GetLocation()
     {
-        while (true)
+        try
         {
-            var location = await Geolocation.GetLocationAsync(new GeolocationRequest
+            LatitudeLabel.Text = "Latitude : Recherche...";
+            LongitudeLabel.Text = "Longitude : Recherche...";
+            AltitudeLabel.Text = "Altitude : Recherche...";
+            while (true)
             {
-                DesiredAccuracy = GeolocationAccuracy.High,
-                Timeout = TimeSpan.FromSeconds(1)
-            });
-        
-            if (location != null)
-            {
-                LatitudeLabel.Text = $"Latitude : {location.Latitude}";
-                LongitudeLabel.Text = $"Longitude : {location.Longitude}";
-                AltitudeLabel.Text = $"Altitude : {Math.Round(float.Parse(location.Altitude.ToString()), 7)}";
+                var location = await Geolocation.GetLocationAsync(new GeolocationRequest
+                {
+                    DesiredAccuracy = GeolocationAccuracy.High,
+                    Timeout = TimeSpan.FromSeconds(5)
+                });
+
+                if (location != null)
+                {
+                    LatitudeLabel.Text = $"Latitude : {location.Latitude}";
+                    LongitudeLabel.Text = $"Longitude : {location.Longitude}";
+                    AltitudeLabel.Text = $"Altitude : {Math.Round(float.Parse(location.Altitude.ToString()), 7)}";
+                }
+
+                await Task.Delay(5000);
             }
-        
-            await Task.Delay(1000);
+        }
+        catch (Exception ex)
+        {
+            LatitudeLabel.Text = "Latitude : Indisponible";
+            LongitudeLabel.Text = "Longitude : Indisponible";
+            AltitudeLabel.Text = "Altitude : Indisponible";
         }
     }
 }
