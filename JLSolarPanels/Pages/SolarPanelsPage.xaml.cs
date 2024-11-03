@@ -97,8 +97,15 @@ public partial class SolarPanelsPage : ContentPage
         
         Accelerometer.ReadingChanged += (sender, e) =>
         {
-            HorizontalLabel.Text = $"Horizontal : {Math.Round(e.Reading.Acceleration.Z, 2)}";
-            VerticalLabel.Text = $"Vertical : {Math.Round(e.Reading.Acceleration.X, 2)}";
+            double x = e.Reading.Acceleration.X;
+            double y = e.Reading.Acceleration.Y;
+            double z = e.Reading.Acceleration.Z;
+            
+            double horizontalAngle = Math.Atan2(Math.Sqrt(x * x + y * y), z) * (180 / Math.PI);  
+            double verticalAngle = Math.Atan2(x, Math.Sqrt(y * y + z * z)) * (180 / Math.PI);
+            
+            HorizontalLabel.Text = $"Horizontal : {Math.Round(horizontalAngle, 2)}°";
+            VerticalLabel.Text = $"Vertical {(verticalAngle > 0 ? "(Gauche)" : "(Droite)")} : {Math.Round(Math.Abs(verticalAngle), 2)}°";
         };
         
         Accelerometer.Start(SensorSpeed.UI);
